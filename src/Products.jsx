@@ -9,31 +9,31 @@ function Products() {
     const { category } = useParams(); // Necklaces, Rings, etc.
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [initialized, setInitialized] = useState(false);
 
     useEffect(() => {
         fetchProducts();
     }, [category]);
 
-    const fetchProducts = async () => {
-        try {
-            setLoading(true);
-            const res = await axios.get(
-              ` ${BASE_URL}/api/subcategories`
-            );
+   const fetchProducts = async () => {
+  try {
+    if (!initialized) setLoading(true);
 
-            // 🔥 Filter based on URL category
-            const filtered = res.data.filter(
-                (item) =>
-                    item.productCategory?.toLowerCase() === category.toLowerCase()
-            );
+    const res = await axios.get(`${BASE_URL}/api/subcategories`);
 
-            setProducts(filtered);
-        } catch (error) {
-            console.error("Error fetching products", error);
-        } finally {
-            setLoading(false);
-        }
-    };
+    const filtered = res.data.filter(
+      (item) =>
+        item.productCategory?.toLowerCase() === category.toLowerCase()
+    );
+
+    setProducts(filtered);
+    setInitialized(true);
+  } catch (error) {
+    console.error("Error fetching products", error);
+  } finally {
+    setLoading(false);
+  }
+};
 
     if (loading) return <h3>Loading products...</h3>;
 

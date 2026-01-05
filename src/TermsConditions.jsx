@@ -9,7 +9,7 @@ const TermsConditions = () => {
       <div className="terms-container">
         {/* Header */}
         <h1 className="terms-title" > Terms & Conditions</h1>
-        <p className="terms-updated">Effective Date: 31-Dec-2025</p>
+        <p className="terms-updated">Effective Date: 01-Jan-2026</p>
 
         {/* Intro */}
         <div className="terms-intro">

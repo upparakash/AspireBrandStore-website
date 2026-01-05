@@ -12,6 +12,7 @@ import "./Navbar.css";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "./redux/authSlice";
 import Component from "./Component";
+import { FaHeart } from "react-icons/fa";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,6 +21,9 @@ const Navbar = () => {
   const user = useSelector((state) => state.auth.user);
   const totalItems = useSelector((state) => state.cart.totalItems);
 
+const wishlistCount = useSelector(
+  (state) => state.wishlist.items.length
+);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -28,6 +32,7 @@ const Navbar = () => {
     setMenuOpen(false);
     setProfileOpen(false);
   };
+  
 
   return (
     <nav className={`navbar ${menuOpen ? "open" : ""}`}>
@@ -115,6 +120,15 @@ const Navbar = () => {
           {/* Notifications */}
           <NavLink to="/Notifications" className="icon" onClick={handleMenuItemClick}>
             <IoNotifications />
+          </NavLink>
+
+
+          {/* Wishlist */}
+          <NavLink to="/Wishlist" className="icon wishlist-icon" onClick={handleMenuItemClick}>
+            <FaHeart />
+            {wishlistCount > 0 && (
+              <span className="wishlist-count">{wishlistCount}</span>
+            )}
           </NavLink>
 
         </div>
