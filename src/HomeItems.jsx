@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import axios from "axios";
 import io from "socket.io-client";
 import { FaHeart, FaRegHeart, FaShareAlt } from "react-icons/fa";
-import { useDispatch } from "react-redux";
-import { addItem } from "./redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "./redux/cartSlice.js";
+import { addToWishlist, removeFromWishlist } from "./redux/wishlistSlice.js";
 import VideoReels from "./VideoReels";
 import "./HomeItems.css";
 
@@ -13,6 +14,7 @@ const BASE = import.meta.env.VITE_BASE_URL;
 const Addcart = () => {
   const Navigate = useNavigate();
   const dispatch = useDispatch();
+  const { priceLimit } = useParams();
 
   const [products, setProducts] = useState([]);
   const [likedItems, setLikedItems] = useState([]);
@@ -20,7 +22,7 @@ const Addcart = () => {
   const [popupMessage, setPopupMessage] = useState("");
 
   const popupTimerRef = useRef(null);
-
+  const wishlistItems = useSelector((state) => state.wishlist.items);
   /* =========================
      🔹 FETCH PRODUCTS (INITIAL LOAD)
   ========================== */
@@ -82,20 +84,20 @@ const Addcart = () => {
         prev.map((item) =>
           item.id === payload.id
             ? {
-                ...item,
-                name: payload.subCategaryname || item.name,
-                price: payload.price ?? item.price,
-                actualPrice:
-                  (payload.price ?? item.price) + 300,
-                image: payload.image_1 || item.image,
-                images: [
-                  payload.image_1,
-                  payload.image_2,
-                  payload.image_3,
-                  payload.image_4,
-                ].filter(Boolean),
-                description: payload.description || item.description,
-              }
+              ...item,
+              name: payload.subCategaryname || item.name,
+              price: payload.price ?? item.price,
+              actualPrice:
+                (payload.price ?? item.price) + 300,
+              image: payload.image_1 || item.image,
+              images: [
+                payload.image_1,
+                payload.image_2,
+                payload.image_3,
+                payload.image_4,
+              ].filter(Boolean),
+              description: payload.description || item.description,
+            }
             : item
         )
       );
@@ -151,17 +153,24 @@ const Addcart = () => {
   /* =========================
      ❤️ LIKE TOGGLE
   ========================== */
-  const toggleLike = (id) => {
-    setLikedItems((prev) =>
-      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+  const toggleLike = (item) => {
+    const isLiked = wishlistItems.some(
+      (p) => p.id === item.id
     );
 
-    setPopupMessage(likedItems.includes(id) ? "UnLiked 💔" : "Liked ❤️");
-    setShowPopup(true);
+    if (isLiked) {
+      dispatch(removeFromWishlist(item.id));
+      setPopupMessage("UnLiked 💔");
+    } else {
+      dispatch(addToWishlist(item));
+      setPopupMessage("Liked ❤️");
+    }
 
+    setShowPopup(true);
     clearTimeout(popupTimerRef.current);
     popupTimerRef.current = setTimeout(() => setShowPopup(false), 900);
   };
+
 
   /* =========================
      🔗 SHARE
@@ -178,115 +187,150 @@ const Addcart = () => {
     }
   };
 
- /* =========================
+  /* =========================
      🛒 ADD TO CART
   ========================== */
- const handleAddToCart = (item) => {
+  const handleAddToCart = (item) => {
     dispatch(
       addItem({
         id: item.id,
         name: item.name,
         brand: item.brand,
         img: item.image,
-        price:item.price,
+        price: item.price,
         qty: 1,
       })
     );
 
-    alert(`${item.name} added to cart` );
+    alert(`${item.name} added to cart `);
   };
+  /* =========================
+     💰 PRICE FILTER LOGIC
+  ========================== */
+  let filteredProducts = products;
+
+  if (priceLimit) {
+    const maxPrice = Number(priceLimit.replace("under-", ""));
+    filteredProducts = products.filter(
+      (item) => item.price <= maxPrice
+    );
+  }
 
   return (
     <>
       <ul className="product-list">
-        {products.map((item) => (
-          <li key={item.id} className="product-item">
-            {/* ❤️ Like */}
-            <div className="heart" onClick={() => toggleLike(item.id)}>
-              {likedItems.includes(item.id) ? (
-                <FaHeart className="heart filled" />
-              ) : (
-                <FaRegHeart className="heart outlined" />
-              )}
-            </div>
+        {filteredProducts.map((item) => {
+          const isLiked = wishlistItems.some(
+            (p) => p.id === item.id
+          );
 
-            {/* 🔗 Share */}
-            <div className="share-btn" onClick={() => shareProduct(item)}>
-              <FaShareAlt className="share-icon" />
-            </div>
+          return (
+            <li key={item.id} className="product-item">
 
-            {/* IMAGE */}
-            <Link
-              to={`/product/${item.id}`}
-              className="img-link"
-              onClick={() =>
-                localStorage.setItem("selectedProduct", JSON.stringify(item))
-              }
-            >
-              <div className="product-image-wrapper">
-                <img src={item.image} alt={item.name} className="main-img" />
-                <img
-                  src={item.images[1] || item.image}
-                  alt="hover"
-                  className="hover-img"
-                />
+              {/* ❤️ LIKE (FIXED) */}
+              <div
+                className="heart"
+                onClick={(e) => {
+                  e.preventDefault();   // 🚨 stops navigation
+                  e.stopPropagation();  // 🚨 stops bubbling
+                  toggleLike(item);
+                }}
+              >
+                {isLiked ? (
+                  <FaHeart className="heart filled" />
+                ) : (
+                  <FaRegHeart className="heart outlined" />
+                )}
               </div>
-            </Link>
 
-            {/* INFO */}
-            <div className="info-section">
-              <h4 className="product-name">{item.name}</h4>
-
-
-              <div className="price-section">
-                <span className="actual-price">₹ {item.actualPrice}</span>
-                <span className="discount-price">₹ {item.price}</span>
+              {/* 🔗 SHARE */}
+              <div
+                className="share-btn"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  shareProduct(item);
+                }}
+              >
+                <FaShareAlt className="share-icon" />
               </div>
-              
-              {/* ACTION BUTTONS */}
-              <div className="action-buttons">
-                {/* ADD TO CART */}
-                <button
-                  className="add-to-cart-btn"
-                  onClick={() => handleAddToCart(item)}
-                >
-                  Add to Cart
-                </button>
 
-                {/* BUY NOW */}
-                <button
-                  className="buy-now-btn"
-                  onClick={() => {
-                    localStorage.setItem(
-                      "selectedProduct",
-                      JSON.stringify(item)
-                    );
+              {/* IMAGE / NAVIGATION */}
+              <Link
+                to={`/product/${item.id}`}
+                className="img-link"
+                onClick={() =>
+                  localStorage.setItem(
+                    "selectedProduct",
+                    JSON.stringify(item)
+                  )
+                }
+              >
+                <div className="product-image-wrapper">
+                  <img src={item.image} alt={item.name} className="main-img" />
+                  <img
+                    src={item.images?.[1] || item.image}
+                    alt="hover"
+                    className="hover-img"
+                  />
+                </div>
+              </Link>
 
-                    Navigate("/Payments", {
-                      state: {
-                        items: [
-                          {
-                            id: item.id,
-                            name: item.name,
-                            img: item.image,
-                            price: item.price,
-                            qty: 1,
-                          },
-                        ],
-                        total: item.price,
-                      },
-                    });
-                  }}
-                >
-                  Buy Now
-                </button>
+              {/* INFO */}
+              <div className="info-section">
+                <h4 className="product-name">{item.name}</h4>
+
+                <div className="price-section">
+                  <span className="actual-price">₹ {item.actualPrice}</span>
+                  <span className="discount-price">₹ {item.price}</span>
+                </div>
+
+                <div className="action-buttons">
+                  <button
+                    className="add-to-cart-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleAddToCart(item);
+                    }}
+                  >
+                    Add to Cart
+                  </button>
+
+                  <button
+                    className="buy-now-btn"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      localStorage.setItem(
+                        "selectedProduct",
+                        JSON.stringify(item)
+                      );
+                      Navigate("/Payments", {
+                        state: {
+                          items: [
+                            {
+                              id: item.id,
+                              name: item.name,
+                              img: item.image,
+                              price: item.price,
+                              qty: 1,
+                            },
+                          ],
+                          total: item.price,
+                        },
+                      });
+                    }}
+                  >
+                    Buy Now
+                  </button>
+                </div>
               </div>
-            </div>
-          </li>
-        ))}
+            </li>
+          );
+        })}
+
       </ul>
       <VideoReels />
-      
+
       {/* Popup */}
       {showPopup && (
         <div className="popup-overlay">
