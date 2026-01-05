@@ -5,7 +5,6 @@ import Bracelets from '../src/images/Bracelets.jpg';
 import Rings from '../src/images/Ringscategory.png';
 import Earrings from '../src/images/Earringscategory.png';
 import LetterPendant from '../src/images/Letter Pendents.jpg';
-
 import "./Categories.css";
 import { useNavigate } from "react-router-dom";
 
@@ -16,7 +15,7 @@ const categories = [
   { name: "Rings", img: Rings, link:"/products/Rings"},
   { name: "Earrings", img:Earrings, link: "/products/Earrings" },
   { name: "Letter Pendant", img: LetterPendant, },
-//   { name: "Passport Cover", img: PassportCover},
+
 ];
 
 const Categories = () => {

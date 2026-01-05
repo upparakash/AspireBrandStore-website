@@ -25,13 +25,15 @@ import PaymentsLogos from "./PaymentsLogos";
 import Profile from './Profile';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsConditions from './TermsConditions';
-import "./App.css";
+import Wishlist  from './Wishlist';
+import ReturnAndRefund from "./ReturnRefund";
 
+import "./App.css";
 
 function App() {
   const dispatch = useDispatch();
 
-  //  Restore user session on refresh
+  // 🔐 Restore user session on refresh
   useEffect(() => {
     dispatch(fetchProfile());
   }, [dispatch]);
@@ -40,7 +42,7 @@ function App() {
     <div className="app-layout">
       {/* <ScrollToTop /> */}
       <Navbar />
-        <ScrollToTop />
+      <ScrollToTop />
 
       <div className="content">
         <Routes>
@@ -54,11 +56,14 @@ function App() {
           <Route path="/Orders" element={<Orderstatus />} />
           <Route path="/products/:category" element={<Products />} />
           <Route path="/Profile" element={<Profile />} />
+          
           {/* Offers */}
           <Route path="/offers1" element={<OffersPage />} />
 
           {/* Notifications */}
           <Route path="/Notifications" element={<Notifications />} />
+
+          <Route path="/Wishlist" element={<Wishlist />} />
 
           {/* Tracking */}
           <Route path="/TrackOrder" element={<Tracking />} />
@@ -69,11 +74,16 @@ function App() {
           {/* FAQs */}
           <Route path="/Faqs" element={<FAQsPage />} />
 
-          <Route path="/Invalid" element={<InvalidOrder />} />
-          <Route path="/collections/:priceLimit" element={<HomeItems />} />
-          
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
-          <Route path="/Terms-Conditions" element={<TermsConditions />} />
+
+          <Route path="/terms-conditions" element={<TermsConditions />} />
+
+          <Route path="/return-refund" element={<ReturnAndRefund />} />
+
+          <Route path="/Invalid" element={<InvalidOrder />} />
+
+          <Route path="/collections/:priceLimit" element={<HomeItems />} />
+
           {/* Home */}
           <Route
             path="/Home"

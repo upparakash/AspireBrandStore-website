@@ -1,22 +1,33 @@
 import React, { useState } from "react";
 import { FaHeart, FaRegHeart, FaStar, FaShareAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "./redux/cartSlice.js";
+import { addToWishlist, removeFromWishlist } from "./redux/wishlistSlice.js";
 import "./ProductCard.css";
 
 function ProductCard({ product }) {
-  const [liked, setLiked] = useState(false);
+  // const [liked, setLiked] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+
   //  Toggle Like
-  const toggleLike = () => {
-    setLiked(!liked);
-    setShowPopup(true);
-    setTimeout(() => setShowPopup(false), 1500);
-  };
+ const toggleLike = () => {
+  if (isLiked) {
+    dispatch(removeFromWishlist(product.id));
+    setPopupMessage("Unliked 💔");
+  } else {
+    dispatch(addToWishlist(product));
+    setPopupMessage("Liked ❤️");
+  }
+
+  setShowPopup(true);
+  setTimeout(() => setShowPopup(false), 1200);
+};
+
+
 
   //  Share Product
   const handleShare = () => {
@@ -39,6 +50,13 @@ function ProductCard({ product }) {
       <FaStar key={i} className={i < rating ? "star filled" : "star"} />
     ));
   };
+  const wishlistItems = useSelector((state) => state.wishlist.items);
+
+  const isLiked = wishlistItems.some(
+    (item) => item.id === product.id
+  );
+
+
 
   //  Add to Cart
   const handleAddToCart = () => {
@@ -62,20 +80,22 @@ function ProductCard({ product }) {
     navigate(`/product/${product.id}`);
   };
 
+
   return (
     <div className="product-card">
       <div className="image-container" onClick={viewProduct}>
         <img src={product.image} alt={product.name} />
 
-        {/* ❤️ Like */}
+        {/* ❤️ Wishlist */}
         <div
-          className={`heart-icon1 ${liked ? "liked" : ""}`}
+          className={`heart-icon1 ${isLiked ? "liked" : ""}`}
           onClick={(e) => {
+            e.preventDefault();  
             e.stopPropagation();
             toggleLike();
           }}
         >
-          {liked ? <FaHeart /> : <FaRegHeart />}
+          {isLiked ? <FaHeart /> : <FaRegHeart />}
         </div>
 
         {/* Share */}
@@ -91,7 +111,7 @@ function ProductCard({ product }) {
 
         {showPopup && (
           <div className="popup-message">
-            {liked ? "Liked ❤️" : "Unliked 💔"}
+            {isLikedliked ? "Liked ❤️" : "Unliked 💔"}
           </div>
         )}
       </div>
@@ -106,14 +126,14 @@ function ProductCard({ product }) {
       <p className="price">
         <span className="discount">₹{product.price}</span>
       </p>
-      
+
       <div className="uniquer-sell">
-      <button onClick={handleAddToCart} className="cart-part">
-        Add to Cart
-      </button> 
-      <button className="buyer-now">
-        Buy Now
-      </button>
+        <button onClick={handleAddToCart} className="cart-part">
+          Add to Cart
+        </button>
+        <button className="buyer-now">
+          Buy Now
+        </button>
       </div>
 
     </div>

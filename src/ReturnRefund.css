@@ -1,0 +1,169 @@
+/* ===== Page Wrapper ===== */
+.return-refund-page {
+  background: linear-gradient(135deg, #fff7f0, #f4f8ff);
+  padding: 48px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== Main Card ===== */
+.policy-container {
+  max-width: 920px;
+  width: 100%;
+  background: #ffffff;
+  padding: 36px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+}
+
+/* ===== Title ===== */
+.policy-title {
+  font-size: 30px;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #2c2c2c;
+  font-weight: 600;
+}
+
+/* ===== Intro ===== */
+.policy-intro {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: #555;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* ===== Sections ===== */
+.policy-section {
+  margin-bottom: 30px;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: #fafafa;
+  border-left: 5px solid transparent;
+}
+
+/* Accent colors per section */
+.policy-section:nth-child(2) {
+  border-left-color: #4caf50; /* Green */
+}
+
+.policy-section:nth-child(3) {
+  border-left-color: #ff9800; /* Orange */
+}
+
+.policy-section:nth-child(4) {
+  border-left-color: #03a9f4; /* Blue */
+}
+
+.policy-section:nth-child(5) {
+  border-left-color: #9c27b0; /* Purple */
+}
+
+.policy-section:nth-child(6) {
+  border-left-color: #f44336; /* Red */
+}
+
+.policy-section:nth-child(7) {
+  border-left-color: #607d8b; /* Grey Blue */
+}
+
+/* ===== Section Titles ===== */
+.policy-section h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #222;
+  font-weight: 600;
+}
+
+/* ===== Text ===== */
+.policy-section p {
+  font-size: 14.5px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* ===== Lists ===== */
+.policy-section ul {
+  padding-left: 18px;
+  margin-top: 8px;
+}
+
+.policy-section li {
+  font-size: 14.5px;
+  margin-bottom: 8px;
+  color: #444;
+  position: relative;
+  padding-left: 6px;
+}
+
+/* ===== Notes ===== */
+.note {
+  font-size: 13.5px;
+  color: #888;
+  background: #fff3cd;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* ===== Contact Section ===== */
+.contact-section {
+  background: linear-gradient(135deg, #eef3ff, #f9fbff);
+  border-left-color: #3f51b5 !important;
+}
+
+/* ===== Support Email ===== */
+.support-email {
+  font-weight: 600;
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.support-email a {
+  color: #3f51b5;
+  text-decoration: none;
+}
+
+.support-email a:hover {
+  text-decoration: underline;
+}
+
+/* ===================== */
+/* Responsive Design */
+/* ===================== */
+
+@media (max-width: 768px) {
+  .policy-container {
+    padding: 28px 22px;
+  }
+
+  .policy-title {
+    font-size: 26px;
+  }
+
+  .policy-section {
+    padding: 16px;
+  }
+
+  .policy-section h3 {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+  .policy-container {
+    padding: 22px 16px;
+    border-radius: 14px;
+  }
+
+  .policy-title {
+    font-size: 23px;
+  }
+
+  .policy-section p,
+  .policy-section li {
+    font-size: 14px;
+  }
+}
