@@ -142,3 +142,12 @@ button:hover {
     padding: 10px;
   }
 }
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .product-card img {
+    height: 180px;
+  }
+}
