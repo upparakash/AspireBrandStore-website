@@ -5,6 +5,7 @@ import WhatsappButton from './WhatsappButton';
 import PriceCategories from './PriceCategories';
 import GenderCollections from './GenderCollections';
 import Categories from './Categories';
+
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 export const Home = () => {
   const [desktopImages, setDesktopImages] = useState([]);

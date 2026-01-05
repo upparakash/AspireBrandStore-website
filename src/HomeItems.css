@@ -26,7 +26,18 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
-
+/* Buy Now */
+.buy-now-btn {
+  width: 80%;   
+  border: none;
+  padding: 0.55rem 1rem;
+  font-weight: 520;
+  font-size: 15px;
+  border-radius: 12px;
+  margin: 8px 0 12px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
 
 /* Heart Icon */
 .heart {
@@ -249,7 +260,7 @@
   @media (max-width: 600px) {
   .heart {
     margin-left: auto;
-    width: 35px;              
+    width: 35px;              /* 👈 bigger touch area */
     height: 44px;
     display: flex;
     align-items: center;
@@ -325,40 +336,41 @@
   margin-top: 7px;
   width: 100%;
 }
-/* COMMON button styles */
+
+/* COMMON button styles (KEY FIX) */
 .add-to-cart-btn,
 .buy-now-btn {
+  flex: 1;
+  min-width: auto;
+  height: 48px;
+  /* SAME HEIGHT */
+  padding: 0;
+  /* REMOVE unequal padding */
   display: flex;
+  /* CENTER TEXT */
   align-items: center;
   justify-content: center;
-  height: 48px;
-  padding: 0;
-  font-size: 15px;
-  font-weight: 520;
+  font-weight: 550;
   cursor: pointer;
-  border: 1px solid #000;
+  border-radius: 6px;
   box-sizing: border-box;
-  transition: 0.25s ease;
+  /* 🔥 MOST IMPORTANT */
 }
 
-/* Add to Cart */
+/* Add to Cart - Left */
 .add-to-cart-btn {
-  flex: 1;
   background-color: #fff;
   color: #000;
-  border-radius: 6px;
+  border: 1px solid #000;
   margin-top: 8px;
 }
 
-/* Buy Now */
+/* Buy Now - Right */
 .buy-now-btn {
-  flex: 1;
-  width: 80%;
-  background-color: yellow;
+  background-color:yellow;
   color: black;
-  border-radius: 12px;
-  margin: 8px 0 12px;
-  padding: 0.55rem 1rem;
+  border: 1px solid #000;
+  /* SAME BORDER WIDTH */
 }
 
 /* Hover effects */
