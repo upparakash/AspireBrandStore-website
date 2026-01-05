@@ -1,0 +1,40 @@
+/* Main layout */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full height */
+}
+
+/* The content should grow and push footer down */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  /* ✅ ADDED: space for fixed navbar */
+  padding-top: 100px; /* desktop navbar height */
+  min-height: calc(100vh - 80px);
+}
+
+/* Tablet & mobile navbar height */
+@media (max-width: 768px) {
+  .content {
+    
+    padding-top: 100px;
+    min-height: calc(100vh - 64px);
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .content {
+   
+    padding-top: 100px;
+    min-height: calc(100vh - 60px);
+  }
+}
+
+/* Footer always pushed down */
+footer {
+  margin-top: auto;
+}

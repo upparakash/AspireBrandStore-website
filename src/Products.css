@@ -1,0 +1,144 @@
+/* ===============================
+   PRODUCTS PAGE
+================================= */
+
+.necklaces-page {
+  width: fit-content;
+  min-height: 100vh;
+  background-color:#f8f7f4;
+}
+
+/* Page Heading */
+.necklaces-page h2 {
+  text-align: center;
+  margin-top: 70px;
+  padding: 0 15px;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 600;
+  color:#970c10;
+  /* background-color: #c1a37f; */
+}
+
+/* ===============================
+   PRODUCT GRID (4 ITEMS PER ROW)
+================================= */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* 🔥 FIXED 4 PER ROW */ 
+  gap: 35px;
+  padding: 30px 20px 50px;
+  max-width: 1400px;  /* 🔥 wider container */
+  margin: auto;
+}
+
+/* ===============================
+   IMAGE STYLE (SHORTER & WIDER)
+================================= */
+
+.product-card img {
+  width: 100%;
+  height: 230px;  /* 🔥 reduced height */
+  object-fit: cover;
+  border-radius: 14px;
+  background-color: #f5f5f5;
+}
+
+/* ===============================
+   PRODUCT TEXT
+================================= */
+
+.product-card h3 {
+  margin: 12px 0 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.3;
+}
+
+.product-card .brand {
+  font-size: 0.85rem;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+/* ===============================
+   PRICE
+================================= */
+
+.price {
+  margin: 10px 0 12px;
+}
+
+.price .actual {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 0.85rem;
+  margin-right: 6px;
+}
+
+.price .discount {
+  color: #d32f2f;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+/* ===============================
+   BUTTON
+================================= */
+
+button {
+  width: 100%;
+  background-color: #c1a37f;
+  border: none;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #970c10;
+}
+
+/* ===============================
+   RESPONSIVE BREAKPOINTS
+================================= */
+
+/* Tablets (3 items per row) */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product-card img {
+    height: 180px;
+  }
+}
+
+/* Mobiles (2 items per row) */
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .product-card {
+    padding: 14px;
+  }
+
+  .product-card img {
+    height: 160px;
+  }
+
+  .product-card h3 {
+    font-size: 0.95rem;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}

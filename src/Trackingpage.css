@@ -1,0 +1,119 @@
+.track-container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+}
+
+.track-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.track-description {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* FORM BOX */
+.track-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+}
+
+.track-box label {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
+    max-width: 350px;
+    margin-top: 20px;
+}
+
+.track-box input {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease;
+    width: 100%;
+    max-width: 350px;
+}
+
+.track-box input:focus {
+    border-color: #8a63f0;
+}
+
+.track-box button {
+    padding: 12px 18px;
+    background: #8a63f0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: fit-content;
+    margin-top: 15px;
+}
+
+.track-box button:hover {
+    background: #6d4bd2;
+}
+
+
+/* ---------------------------
+   📱 Mobile Responsive
+---------------------------- */
+@media (max-width: 600px) {
+    .track-container {
+        margin: 30px 15px;
+        padding: 20px;
+    }
+
+    .track-title {
+        font-size: 24px;
+    }
+
+    .track-description {
+        font-size: 14px;
+    }
+
+    .track-box label {
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .track-box input {
+        max-width: 100%;
+    }
+
+    .track-box button {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* ---------------------------
+   📱 Extra Small Screens
+---------------------------- */
+@media (max-width: 400px) {
+    .track-title {
+        font-size: 22px;
+    }
+
+    .track-box button {
+        font-size: 16px;
+        padding: 10px;
+    }
+}

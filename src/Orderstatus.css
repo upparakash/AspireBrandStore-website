@@ -1,0 +1,110 @@
+.order-status-box {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  max-width: 360px;        /* ✅ SMALLER WIDTH */
+  margin: 30px auto;      /* ✅ PERFECT CENTER */
+  font-family: "Poppins", sans-serif;
+}
+
+.status-title {
+  text-align: center;
+  font-size: 18px;        /* ✅ SMALLER TITLE */
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.status-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.status-step {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.step-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-dot {
+  width: 12px;           /* ✅ SMALLER DOT */
+  height: 12px;
+  border-radius: 50%;
+  background: #cfcfcf;
+}
+
+.step-line {
+  width: 2.5px;          /* ✅ THINNER LINE */
+  height: 26px;
+  background: #e0e0e0;
+  margin-top: 4px;
+  border-radius: 5px;
+}
+
+.step-content h4 {
+  font-size: 14px;       /* ✅ SMALLER TEXT */
+  margin: 0;
+  font-weight: 600;
+}
+
+.step-content p {
+  font-size: 12px;
+  color: #666;
+  margin: 2px 0 0;
+}
+
+/* ========================= */
+/* ✅ CUSTOM STATUS COLORS   */
+/* ========================= */
+
+/* 🟡 Order Placed */
+.placed .step-dot,
+.placed .step-line {
+  background: #fbc02d;
+}
+
+.placed h4 {
+  color: #fbc02d;
+}
+
+/* 🟢 Order Confirmed */
+.confirmed .step-dot,
+.confirmed .step-line {
+  background: #2e7d32;
+}
+
+.confirmed h4 {
+  color: #2e7d32;
+}
+
+/* 🟤 Packed */
+.packed .step-dot,
+.packed .step-line {
+  background: #8d6e63;
+}
+
+.packed h4 {
+  color: #8d6e63;
+}
+
+/* 🔴 Shipped */
+.shipped .step-dot,
+.shipped .step-line {
+  background: #d32f2f;
+}
+
+.shipped h4 {
+  color: #d32f2f;
+}
+
+/* ⚪ Pending */
+.pending {
+  opacity: 0.45;
+}

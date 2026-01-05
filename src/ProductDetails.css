@@ -1,0 +1,436 @@
+/* =========================
+   PAGE BASE
+========================= */
+.pd-page {
+  width: 100%;
+  background: #fff;
+}
+
+.pd-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
+}
+
+/* BACK BUTTON */
+.pd-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #0d1bff;
+  color: #fff;
+  font-size: 14px;        /* 👈 smaller text */
+  padding: 6px 12px;     /* 👈 compact size */
+  border-radius: 6px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: none;
+  cursor: pointer;
+  width: fit-content;    /* 👈 prevents stretching */
+}
+
+.pd-back:hover {
+  opacity: 0.9;
+  background: #0d1bff;;
+}
+
+
+/* =========================
+   GRID LAYOUT
+========================= */
+.pd-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* =========================
+   MEDIA (LEFT)
+========================= */
+.pd-media {
+  width: 100%;
+}
+
+
+
+/* MAIN IMAGE */
+.pd-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 👈 CROPPING FIX */
+}
+
+/* IMAGE ARROWS */
+.pd-main-prev,
+.pd-main-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.pd-main-prev {
+  left: 8px;
+}
+
+.pd-main-next {
+  right: 8px;
+}
+
+.pd-main-prev:hover,
+.pd-main-next:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+/* THUMBNAILS */
+.pd-thumbnails {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.pd-thumb {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  
+}
+
+.pd-thumb.active {
+  border-color: #0d1bff;
+}
+
+/* =========================
+   PRODUCT INFO (RIGHT)
+========================= */
+.pd-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.pd-title {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.pd-brand {
+  color: #777;
+  margin-bottom: 16px;
+}
+
+.pd-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pd-price {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.pd-actual {
+  color: #000;
+}
+
+.pd-discount {
+  margin-left: 10px;
+  color: #888;
+  text-decoration: line-through;
+}
+
+/* LIKE & SHARE */
+.pd-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.pd-like,
+.pd-share {
+  width: 40px;
+  height: 40px;
+  background:none;
+  cursor: pointer;
+  color: red;
+   font-size: 26px;
+
+}
+.pd-like:hover,
+.pd-share:hover {
+   background:none;
+  cursor: pointer;
+}
+
+
+.pd-like.liked {
+  color: red;
+  position: relative;
+}
+
+/* RATING */
+.pd-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 14px 0;
+  margin-top: 10px;
+}
+
+.pd-star {
+  color: #ccc;
+  cursor: pointer;
+}
+
+.pd-star.filled {
+  color: #f7b500;
+}
+
+.pd-reviews {
+  margin-left: 8px;
+  color: #666;
+  margin-top: 20px;
+}
+
+/* DESCRIPTION */
+.pd-desc {
+  margin-top: 0px;
+}
+
+.pd-desc h3 {
+  margin-top: 40px;
+}
+
+.pd-desc-content p {
+  margin-top: 40px;
+  line-height: 1.6;
+}
+
+/* FOOTER BUTTONS */
+.pd-footer {
+  display: flex;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.pd-addcart {
+  flex: 1;
+  background: #ffa000;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.pd-addcart:hover {
+  flex: 1;
+  background: #ffa000;
+ 
+}
+
+.pd-buy {
+  flex: 1;
+  background: #2ea043;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.pd-buy:hover {
+  flex: 1;
+  background: #2ea043;
+ 
+}
+
+
+/* =========================
+   ZOOM OVERLAY
+========================= */
+.zoom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  margin-top: 90px;
+}
+
+.zoom-image-view {
+  max-width: 90%;
+  max-height: 90%;
+  user-select: none;
+}
+
+/* ZOOM CONTROLS */
+.zoom-controls {
+  position: absolute;
+  
+  display: flex;
+  gap: 10px;
+}
+
+.zoom-controls button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+
+}
+
+/* ZOOM ARROWS */
+.zoom-prev,
+.zoom-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.zoom-prev {
+  left: 20px;
+}
+
+.zoom-next {
+  right: 20px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 992px) {
+  .pd-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .pd-title {
+    font-size: 22px;
+  }
+
+  .pd-footer {
+    flex-direction: column;
+  }
+
+  .pd-thumb {
+    width: 52px;
+    height: 52px;
+  }
+  
+}
+
+
+
+
+.pd-desc-content iframe {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.pd-desc-content figure {
+  margin: 0;
+}
+/* RIGHT ZOOM PANEL */
+/* HOVER ZOOM PREVIEW PANEL */
+.pd-zoom-preview {
+  left: 120%;         /* position next to main image */
+  top: 0;
+  width: 1000px;
+  height: 800px;
+
+
+}
+
+.pd-zoom-preview-img {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+/* ❌ CLOSE BUTTON */
+.zoom-close {
+  position: absolute;
+  top: 40px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 22px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10000;
+}
+.zoom-close:hover {
+  background: rgba(0,0,0,0.85);
+}
+
+.pd-image-wrapper {
+  position: relative;
+  cursor: none; /* 🔥 hides real cursor */
+}
+
+
+.pd-zoom-preview {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  width: 200%;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+
+
+}
+.pd-zoom-lens {
+  position: absolute;
+  pointer-events: none;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+/* 🎯 Fake cursor at center */
+.pd-zoom-lens::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #000;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

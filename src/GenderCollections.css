@@ -1,0 +1,129 @@
+
+/* =========================
+   Gifting Header
+========================= */
+
+.gifting-content {
+  text-align: center;
+ 
+  background: #D9C199;
+}
+
+.gifting-content h1 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #111;
+ 
+}
+
+.gifting-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* =========================
+   Grid Layout
+========================= */
+
+.gender-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  padding: 20px 10px;
+  background: #fff;
+}
+
+/* =========================
+   Card
+========================= */
+
+.gender-card {
+  width: 100%;
+  height: 300px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: bisque;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gender-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================
+   Image
+========================= */
+
+.gender-img {
+  
+  width: 100%;
+  height: 260px;              /* 🔥 balanced height */
+  object-fit: cover;;
+}
+
+
+/* =========================
+   Text
+========================= */
+
+.gender-text {
+  padding: 0px;
+  text-align: center;
+}
+
+.gender-text h2 {
+  font-size: 19px;
+  font-family: monospace;
+  color: #111;
+  margin-top: -15px;
+}
+
+.gender-text button {
+  background: transparent;
+  color: #111;
+  border: 1px solid #111;
+  padding: 9px 22px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.gender-text button:hover {
+  background: #111;
+  color: #fff;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 1024px) {
+  .gender-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gender-img {
+    height: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gender-section {
+    grid-template-columns: 1fr;
+    padding: 28px 16px;
+  }
+
+  .gender-img {
+    height: 230px;
+  }
+    .gender-section {
+    grid-template-columns: repeat(2, 1fr); /* 🔥 2 per row */
+    gap: 16px;
+  }
+}

@@ -1,0 +1,98 @@
+/* ===== Container ===== */
+.offers-container {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* 3 items in each row */
+}
+
+.offers-container h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ff0066;
+    margin-bottom: 20px;
+    text-shadow: 0px 0px 4px rgba(255, 0, 102, 0.4);
+}
+
+/* ===== Grid Layout ===== */
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 45px;
+    padding: 10px;
+}
+
+/* ===== Product Cards ===== */
+.offer-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #eee;
+}
+
+.offer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image */
+.offer-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+
+}
+
+/* Product Name */
+.offer-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+/* Old Price */
+.old-price {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* New Price */
+.new-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ff6600;
+}
+
+/* ===== Fade In Animation ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+    .offers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .offer-card img {
+        height: 110px;
+    }
+}

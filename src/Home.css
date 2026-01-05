@@ -1,0 +1,362 @@
+/* 🌸 General Styling */
+
+.banner {
+  display: flex;
+  flex-direction: row;
+  color: #555;
+  gap: 30px;
+  align-items: center;
+  font-weight: 600;
+  margin-left: 300px;
+
+}
+
+.marquee-container {
+  text-align: center;
+  margin-top: -80px;
+
+}
+
+.marquee-text {
+  font-size: 16px;
+  color: #ff4500;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+
+
+}
+
+/* Remove any box, border, or background */
+.marquee-gif {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+
+
+}
+
+/* Make the GIF small and smooth */
+.marquee-gif img {
+  width: 40px;
+  height: 40px;
+  border-radius: 80px;
+  /* Optional */
+  display: inline-block;
+  display: flex;
+  flex-direction: row;
+}
+
+
+/* 🏷 Categories Section */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /* vertically centers the items */
+  gap: 8px;
+  margin-top: -100px;
+  padding: 0px;
+}
+
+/* 🧩 Individual Category Items */
+.categories p {
+  background-color: #f4e1d2;
+  color: #333;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 6px 12px;
+  margin: 0;
+  line-height: 1.2;
+  /* display: inline-block; */
+}
+
+.categories p:hover {
+  background-color: #b87333;
+  color: #fff;
+}
+
+.categories a {
+  background-color: #f4e1d2;
+  color: #333;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 6px 12px;
+  margin: 0;
+  line-height: 1.2;
+  display: inline-block;
+  text-decoration: "none",
+
+}
+
+.categories a:hover {
+  background-color: #b87333;
+  color: #fff;
+}
+
+
+
+/* 💬 Quote Section */
+.quote {
+  text-align: center;
+  margin: 30px 15px;
+  font-style: italic;
+  color: #555;
+  font-size: 1.1rem;
+  margin-top:-40px;
+}
+
+.quote p {
+  margin: 5px 0;
+}
+
+/* ✨ Highlight Text */
+.text {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #b87333;
+  margin: 20px 0;
+  margin-top: 25px;
+}
+
+/* 🖼️ Image Gallery */
+.image-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 30px 0;
+  padding: 0 20px;
+}
+
+.image-container img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 🧩 Responsive Adjustments */
+
+/* ✅ Large Tablets / Small Desktops */
+@media (max-width: 1024px) {
+  .banner img {
+    width: 180px;
+    height: 180px;
+
+  }
+
+  .banner {
+    display: flex;
+    flex-direction: row;
+
+  }
+
+  .image-container img {
+    width: 250px;
+    height: 250px;
+  }
+
+}
+
+/* ✅ Tablets */
+@media (max-width: 768px) {
+  .banner img {
+    width: 160px;
+    height: 160px;
+    margin-top: -40px;
+  }
+
+  .banner p {
+    font-size: 1.1rem;
+  }
+
+  .categories {
+    gap: 30px;
+  }
+
+  .categories p {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+
+  .image-container img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .quote {
+    font-size: 1rem;
+  }
+
+  .text {
+    font-size: 1.15rem;
+  }
+}
+
+/* ✅ Mobile Phones */
+@media (max-width: 480px) {
+  .banner img {
+    width: 120px;
+    height: 120px;
+    margin-top: -20px;
+  }
+
+  .categories {
+    flex-direction: column;
+    align-items: center;
+    margin-top: -20px;
+  }
+
+  .categories p {
+    width: 80%;
+    text-align: center;
+  }
+
+  .image-container img {
+    width: 90%;
+    height: auto;
+  }
+
+  .text {
+    font-size: 1rem;
+  }
+
+  .quote {
+    font-size: 0.95rem;
+    margin: 20px;
+  }
+}
+
+/* ✅ Small Mobile (Extra Responsive) */
+@media (max-width: 360px) {
+  .banner img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .categories p {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  .image-container img {
+    width: 100%;
+  }
+
+  .text {
+    font-size: 0.95rem;
+  }
+}
+
+.nav-link,
+.nav-link:visited,
+.nav-link:active,
+.nav-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.secondImage {
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  margin: 20px auto 90px;
+  border-radius: 18px;
+  overflow: hidden;
+  height: auto;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.secondImage ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.secondImage li {
+  width: 100%;
+}
+
+/* Main Image Styling */
+.secondImage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  object-fit: contain; /* changed from cover → contain */
+  object-position: center;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* ===== Large Tablet / Laptop ===== */
+@media (max-width: 1024px) {
+  .secondImage {
+    max-width: 95%;
+    margin: 18px auto 70px;
+  }
+
+  .secondImage img {
+    border-radius: 16px;
+  }
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 768px) {
+  .secondImage {
+    max-width: 90%;
+    margin: 15px auto 60px;
+  }
+
+  .secondImage img {
+    border-radius: 15px;
+    width: 100%;
+    height: auto; /* Let height auto adjust */
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 576px) {
+  .secondImage {
+    max-width: 95%;
+    margin: 12px auto 50px;
+  }
+
+  .secondImage img {
+    border-radius: 14px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ===== Small Mobile ===== */
+@media (max-width: 400px) {
+  .secondImage {
+    max-width: 98%;
+    margin: 10px auto 40px;
+  }
+
+  .secondImage img {
+    border-radius: 12px;
+    width: 100%;
+    height: auto;
+  }
+}

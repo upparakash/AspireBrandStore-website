@@ -1,0 +1,191 @@
+/* GLOBAL STYLE */
+.about-container {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #f0f3ff, #ffffff);
+  min-height: 80vh;
+  padding-bottom: 40px;
+}
+
+/* HERO SECTION */
+.about-hero {
+  text-align: center;
+  padding: 5px 10px;
+  background: linear-gradient(100deg, #c1a37f, #970c10);
+  color: white;
+  border-radius: 0 0 50px 50px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 1.2s ease-in-out;
+  margin-top: 23px;
+}
+
+.about-hero h1 {
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.about-hero p {
+  font-size: 18px;
+  opacity: 0.95;
+  font-weight: 300;
+}
+
+/* MAIN WRAPPER */
+.about-content {
+  width: 98%;
+  max-width: 1100px;
+  margin: 50px auto;
+  margin-top: 8px;
+}
+
+/* GLASS CARD DESIGN */
+.about-card {
+  background: rgba(255, 255, 255, 0.55);
+  padding: 28px;
+  margin-bottom: 35px;
+  border-radius: 22px;
+  box-shadow: 0px 10px 25px rgba(249, 65, 65, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  animation: floatUp 0.8s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+  transform: scale(1);
+  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+
+.about-card h2 {
+  margin-bottom: 15px;
+  font-size: 28px;
+  color: #0e0e0f;
+  font-weight: 600;
+}
+
+.about-card p {
+  color: #444;
+  line-height: 1.6;
+  font-size: 17px;
+}
+
+/* SPLIT BOXES (Mission + Vision) */
+.about-split {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.about-box {
+  flex: 1;
+  min-width: 320px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: floatUp 1s ease;
+  transition: .3s ease;
+}
+
+.about-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.about-box h2 {
+  font-size: 26px;
+  margin-bottom: 12px;
+  color: #223046;
+}
+
+/* PROMISE LIST */
+.promise-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 35px;
+}
+
+.promise-list li {
+  background: linear-gradient(135deg, #ddecff, #f2f6ff);
+  margin-bottom: 12px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1d2b4b;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.06);
+  
+}
+.about-card2 {
+margin-top: 40px;
+}
+
+/* HIGHLIGHT SECTION */
+.about-highlight {
+  background: linear-gradient(135deg, #ffe7c7, #ffd8a8);
+  padding: 50px 25px;
+  text-align: center;
+  border-radius: 24px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.about-highlight h2 {
+  font-size: 30px;
+  margin-bottom: 14px;
+  color: #503200;
+}
+
+.about-highlight p {
+  font-size: 18px;
+  color: #5a4331;
+  line-height: 1.8;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .about-hero h1 {
+    font-size: 34px;
+  }
+
+  .about-card,
+  .about-box {
+    padding: 22px;
+  }
+
+  .about-highlight {
+    padding: 35px 20px;
+  }
+}

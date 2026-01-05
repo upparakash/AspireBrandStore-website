@@ -1,0 +1,125 @@
+/* ===== Page Background ===== */
+.privacy-page {
+  background: #f1f3f6; /* Flipkart-like bg */
+  padding: 48px 16px;
+}
+
+/* ===== Main Container ===== */
+.privacy-container {
+  max-width: 1000px;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* ===== Header Section ===== */
+.privacy-title {
+  font-size: 34px;
+  font-weight: 700;
+  padding: 28px 32px 6px;
+  color: #111;
+}
+
+.privacy-updated {
+  padding: 0 32px 20px;
+  font-size: 14px;
+  color: #777;
+  border-bottom: 1px solid #eee;
+}
+
+/* ===== Intro Highlight ===== */
+.privacy-intro {
+  background: #f9fafb;
+  padding: 20px 32px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  border-left: 4px solid #2874f0; /* Flipkart blue accent */
+}
+
+/* ===== Section Wrapper ===== */
+.privacy-section {
+  padding: 28px 32px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* ===== Section Heading ===== */
+.privacy-section h2 {
+  font-size: 21px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #111;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ===== Text ===== */
+.privacy-section p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.75;
+  margin-bottom: 10px;
+}
+
+/* ===== Lists ===== */
+.privacy-section ul {
+  padding-left: 18px;
+  margin-top: 8px;
+}
+
+.privacy-section ul li {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* subtle bullet style */
+.privacy-section ul li::marker {
+  color: #2874f0;
+}
+
+/* ===== Contact Section Highlight ===== */
+.privacy-contact {
+  background: #fafcff;
+  border-top: 1px solid #e6ebf1;
+}
+
+.privacy-contact a {
+  color: #2874f0;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.privacy-contact a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Mobile Optimization ===== */
+@media (max-width: 768px) {
+  .privacy-title {
+    font-size: 26px;
+    padding: 22px 20px 4px;
+  }
+
+  .privacy-updated {
+    padding: 0 20px 16px;
+  }
+
+  .privacy-intro {
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+
+  .privacy-section {
+    padding: 22px 20px;
+  }
+
+  .privacy-section h2 {
+    font-size: 18px;
+  }
+}

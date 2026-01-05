@@ -1,0 +1,142 @@
+/* CONTAINER */
+.faq-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* TITLE */
+.faq-title {
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 600;
+}
+
+.faq-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* SEARCH BAR */
+.faq-search {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.faq-search input {
+    width: 80%;
+    max-width: 400px;
+    padding: 12px 15px;
+    border-radius: 14px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.faq-search input:focus {
+    border-color: #4a67ff;
+    box-shadow: 0 0 8px rgba(74, 103, 255, 0.2);
+}
+
+/* FAQ LIST */
+.faq-item {
+    background: #ffffff;
+    margin-bottom: 15px;
+    padding: 18px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.faq-item.open {
+    background: #eef3ff;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question h3 {
+    font-size: 18px;
+    color: #222;
+}
+
+.faq-question span {
+    font-size: 26px;
+    color: #333;
+    font-weight: bold;
+}
+
+.faq-answer {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.faq-answer p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* NO RESULTS */
+.no-results {
+    text-align: center;
+    color: #777;
+    font-size: 16px;
+    padding: 20px 0;
+}
+
+/* CONTACT SUPPORT SECTION */
+.contact-support {
+    background: #f5f7ff;
+    padding: 30px;
+    border-radius: 15px;
+    margin-top: 40px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.contact-support h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.contact-support p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.support-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-support,
+.btn-email {
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    background: #4a67ff;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.btn-email {
+    background: #222;
+}
+
+.btn-support:hover,
+.btn-email:hover {
+    opacity: 0.8;
+}
