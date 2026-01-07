@@ -22,9 +22,9 @@ const faqs = [
         answer:
             "Yes, orders can be cancelled before they are shipped. Once shipped, cancellation is not possible.",
     },
-   
+
     {
-        question:"What materials are used in your jewelry?",
+        question: "What materials are used in your jewelry?",
         answer:
             "Our jewelry is made using high-quality artificial materials such as stainless steel, copper, and carefully crafted imitation stones. Each piece is designed to look elegant and stylish while remaining affordable. We always mention the exact materials in the product description so you know what you’re purchasing."
     },
@@ -34,26 +34,27 @@ const faqs = [
             "It’s simple! Browse our collections, choose your favorite pieces, add them to your cart, and follow the checkout process. You can pay securely using your preferred payment method."
     },
     {
-        question:" What payment options do you offer?",
+        question: " What payment options do you offer?",
         answer:
             "We accept all major credit/debit cards, net banking, UPI, and CASH ON DELIVERY. Your payment details are fully secure with us."
     },
     {
-        question:"how long does delivery take?",
+        question: "how long does delivery take?",
         answer:
             "Domestic orders usually arrive within 3–7 business days. Depending on how you are situated, national shipments may take anywhere from seven to twenty-one business days. As soon as your order ships, you will receive a tracking number."
     },
-    {   question:"Can I track my order?",
+    {
+        question: "Can I track my order?",
         answer:
             "Of course! We are going to send you a tracking number as soon as your order ships. The status is continuously accessible to you to verify."
     },
     {
-        question:"Can I cancel or change my order?",
+        question: "Can I cancel or change my order?",
         answer:
             "If you need to cancel or modify your order, please contact us within 24 hours of placing it. We’ll do our best to accommodate your request before the order is processed."
     },
     {
-        question:"What is your return and exchange policy?",
+        question: "What is your return and exchange policy?",
         answer:
             "We accept returns and exchanges within 2-3 days of delivery. Items must be unused, in their original packaging, and accompanied by the receipt. Please note that personalized or engraved pieces cannot be returned."
     }
@@ -118,23 +119,27 @@ const FAQPage = () => {
             </div>
 
             {/* Contact Support Section */}
-            <div className="contact-support">
-                <h2>Still have questions?</h2>
-                <p>We're here to help! Reach out to our support team anytime.</p>
+            <div className="support-buttons">
+                {/* WhatsApp Business */}
+                <a
+                    href="https://wa.me/918096100571?text=Hello%20Aspire%20Team%2C%20I%20would%20like%20to%20know%20more%20about%20your%20products%20and%20services.
+"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-support"
+                >
+                    Contact Us
+                </a>
 
-                <div className="support-buttons">
-                    <a href="/contact" className="btn-support">Contact Us</a>
-                    <a
-                        href="https://mail.google.com/mail/?view=cm&fs=1&to=hr@aspireths.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn-email"
-                    >
-                        Email Support
-                    </a>
-
-                </div>
+                {/* Email Support */}
+                <a
+                    href="mailto:hr@aspireths.com?subject=Support%20Request"
+                    className="btn-email"
+                >
+                    Email Support
+                </a>
             </div>
+
         </div>
     );
 };
